@@ -5,17 +5,13 @@ import {QuizContext} from "./QuizContext"
 import About from './About'
 import Home from './Home'
 import Movie from './movie/Movie'
+import Login from './LoginContent'
 
 const IndexContent = () =>{
     const [isLogin,setIslogin] = useContext(QuizContext);
 
-    const logOut = (event) => {
-        setIslogin(false);
-    }
 
     return(
-        <>
-        {isLogin && 
         <>
             <header>
                 <img id="logo" width="200px" className="logo"/>
@@ -24,8 +20,15 @@ const IndexContent = () =>{
                         {/* <Link to='/tugas12'>Tugas 12</Link> */}
                         <Link to='/'>Home</Link>
                         <Link to='/about'>About</Link>
-                        <Link to='/movie'>Movie</Link>
-                        <a href="javasript:void(0);" onClick={logOut}>Logout</a>
+                        {
+                            isLogin ?
+                            <><Link to='/movie'>Movie</Link>
+                            <a href="javasript:void(0);" onClick={()=>setIslogin(!isLogin)}>Logout</a></>
+                            :
+                            <Link to ='/login'>{isLogin ? 'Logout' : 'Login'}</Link>
+                        }
+                        {/* <a href="javasript:void(0);" onClick={()=>setIslogin(!isLogin)}>{isLogin ? 'Logout' : 'Login'}</a> */}
+                        
                         
                     </div>
                 </nav>
@@ -33,6 +36,9 @@ const IndexContent = () =>{
             <section>
                 <Switch>
                     
+                    <Route path='/login'>
+                        <Login/>
+                    </Route>
                     <Route path='/about'>
                         <About/>
                     </Route>
@@ -44,9 +50,6 @@ const IndexContent = () =>{
                     </Route>
                 </Switch>
             </section>
-        </>
-        }
-        
         </>
     )
 }

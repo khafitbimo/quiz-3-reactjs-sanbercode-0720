@@ -7,7 +7,7 @@ const Quiz = () =>{
     return(
       <QuizProvider>
         <IndexContent/>
-        <LoginContent/>
+        {/* <LoginContent/> */}
       </QuizProvider>
     )
   }
