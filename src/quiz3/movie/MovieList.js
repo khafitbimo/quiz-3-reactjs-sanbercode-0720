@@ -1,17 +1,17 @@
-import React,{useContext,useState} from 'react';
+import React,{useContext} from 'react';
 import axios from "axios"
 import {MovieContext} from './MovieContext';
 
 const MovieList = () => {
     const [apiUrl,movie,setMovie, 
-        inputTitle, setInputTitle,
-        inputDescription, setInputDescription,
-        inputYear,setInputYear,
-        inputDuration,setInputDuration,
-        inputGenre,setInputGenre,
-        inputRating,setInputRating,
-        selectedId, setSelectedId,
-        statusForm, setStatusForm] = useContext(MovieContext);
+         setInputTitle,
+         setInputDescription,
+        setInputYear,
+        setInputDuration,
+        setInputGenre,
+        setInputRating,
+         setSelectedId,
+         setStatusForm] = useContext(MovieContext);
 
     
         const handleEdit = (event) => {
@@ -25,7 +25,7 @@ const MovieList = () => {
             setInputDuration(selectMovie.duration === null ? '' : selectMovie.duration);
             setInputGenre(selectMovie.genre === null ? '' : selectMovie.genre);
             setInputRating(selectMovie.rating === null ? '' : selectMovie.rating);
-
+            setStatusForm("edit")
         }
 
         const handleDelete = (event) => {
@@ -42,33 +42,33 @@ const MovieList = () => {
         return(
             <>
             <div>
-            <h1>Tabel Harga Buah</h1>
-            <table>
+            <h2 className='title'>Daftar Film Terbaik</h2>
+            <table className='table-movie'>
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Year</th>
-                        <th>Duration</th>
-                        <th>Genre</th>
-                        <th>Rating</th>
-                        <th>Description</th>
-                        <th>Action</th>
+                        <th className='ten'>Title</th>
+                        <th className='ten'>Year</th>
+                        <th className='ten'>Duration</th>
+                        <th className='ten'>Genre</th>
+                        <th className='ten'>Rating</th>
+                        <th className='fourty'>Description</th>
+                        <th className='ten'>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                 {
-                    movie !== null && movie.map((item,index) => {
+                    movie !== null && movie.sort((a,b) => parseInt(b.id) - parseInt(a.id)).map((item,index) => {
                         return(
-                            <tr key={index}>
-                                <td>{item.title}</td>
-                                <td>{item.year}</td>
-                                <td>{item.duration} Jam</td>
-                                <td>{item.genre}</td>
-                                <td>{item.rating}</td>
+                            <tr key={index} className='border-bottom margin-bottom-top-ten'>
+                                <td className='center'>{item.title}</td>
+                                <td className='center'>{item.year}</td>
+                                <td className='center'>{item.duration/60} Jam</td>
+                                <td className='center'>{item.genre}</td>
+                                <td className='center'>{item.rating}</td>
                                 <td>{item.description}</td>
-                                <td>
-                                    <button onClick={handleEdit} value={item.id}>Edit</button>
-                                    <button onClick={handleDelete} value={item.id}>Delete</button>
+                                <td className='center'>
+                                    <button className='button-blue' onClick={handleEdit} value={item.id}>Edit</button><br></br>
+                                    <button className='button-red' onClick={handleDelete} value={item.id}>Delete</button>
                                 </td>
                             </tr>
                         )

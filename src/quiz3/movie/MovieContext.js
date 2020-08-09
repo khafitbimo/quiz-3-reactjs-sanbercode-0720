@@ -2,16 +2,17 @@ import React, { useState, createContext,useEffect } from "react";
 import axios from "axios";
 
 
-// let url = 'http://backendexample.sanbercloud.com/api/movies';
 export const MovieContext = createContext();
 
 export const MovieProvider = props => {
+    const dt = new Date();
+    const year = dt.getFullYear();
     const [apiUrl] = useState('http://backendexample.sanbercloud.com/api/movies')
     const [movie,setMovie] = useState(null);
     
     const [inputTitle, setInputTitle] = useState("")
     const [inputDescription, setInputDescription] = useState("")
-    const [inputYear,setInputYear] = useState(0)
+    const [inputYear,setInputYear] = useState(year)
     const [inputDuration,setInputDuration] = useState(0)
     const [inputGenre,setInputGenre] = useState("")
     const [inputRating,setInputRating] = useState(0)

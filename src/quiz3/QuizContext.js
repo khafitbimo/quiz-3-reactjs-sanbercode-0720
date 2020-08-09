@@ -1,10 +1,10 @@
-import React, { useState, createContext,useEffect } from "react";
+import React, { useState, createContext } from "react";
 
 export const QuizContext = createContext();
 
 export const QuizProvider = props => {
     const [isLogin,setIsLogin] = useState(false);
-    const [user,setUser] = useState(null);
+    const [user,setUser] = useState('');
     const [inputUsername,setUsername] = useState('')
    
 

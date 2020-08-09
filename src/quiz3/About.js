@@ -3,19 +3,17 @@ import React from 'react';
 const About = () => {
     return (
         <>
-            <h1>
+            <h2 className='title'>
                 Data Peserta Sanbercode Bootcamp Reactjs
-            </h1>
+            </h2>
             
             <table>
                 <tbody>
-
-                
                 <tr>
-                    <td>1.</td>
-                    <td><strong>Nama</strong></td>
-                    <td>:</td>
-                    <td>Khafit Bimo Prasetyo</td>
+                    <td className='ten'>1.</td>
+                    <td className='thirty'><strong>Nama</strong></td>
+                    <td className='ten'>:</td>
+                    <td className='sixty'>Khafit Bimo Prasetyo</td>
                 </tr>
                 <tr>
                     <td>2.</td>

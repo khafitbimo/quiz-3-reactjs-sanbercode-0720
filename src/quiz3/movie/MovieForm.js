@@ -1,4 +1,4 @@
-import React,{useContext,useState} from 'react';
+import React,{useContext} from 'react';
 import axios from "axios"
 import {MovieContext} from './MovieContext';
 
@@ -101,19 +101,23 @@ const MovieForm = () => {
 return(
         <>
             <div>
-                {/* Form */}
-                <h1>Form Movie</h1>
+                <h2 className='title'>Form Movie</h2>
                 <form onSubmit={handleSubmit}>
                     <table>
                         <tbody>
                             <tr>
-                                <td>
+                                <td className='ten'>
                                     <label>
                                         Title
                                     </label>
                                 </td>
-                                <td>
-                                <input id="title" name="title" type="text" value ={inputTitle} onChange={handleChange}/>
+                                <td className='thirty'>
+                                    <input id="title" name="title" type="text" value ={inputTitle} onChange={handleChange}/>
+                                </td>
+                                <td className='ten'></td>
+                                <td className='ten'>Genre</td>
+                                <td className='thirty'>
+                                    <input id="genre" name="genre" type="text" value = {inputGenre} onChange={handleChange}/>
                                 </td>
                             </tr>
                             <tr>
@@ -121,7 +125,14 @@ return(
                                     Year
                                 </td>
                                 <td>
-                                <input id="year" name="year" type="text" value ={inputYear} onChange={handleChange}/>
+                                <input id="year" name="year" type="number" value ={inputYear} onChange={handleChange}/>
+                                </td>
+                                <td className='ten'></td>
+                                <td rowSpan='3'>
+                                    Description
+                                </td>
+                                <td rowSpan='3'>
+                                    <textarea  id="description" name="description" type="text" value = {inputDescription} onChange={handleChange} rows='4'/>
                                 </td>
                             </tr>
                             <tr>
@@ -129,15 +140,7 @@ return(
                                     Duration (min)
                                 </td>
                                 <td>
-                                <input id="duration" name="duration" type="text" value = {inputDuration} onChange={handleChange}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Genre
-                                </td>
-                                <td>
-                                <input id="genre" name="genre" type="text" value = {inputGenre} onChange={handleChange}/>
+                                <input id="duration" name="duration" type="number" value = {inputDuration} onChange={handleChange}/>
                                 </td>
                             </tr>
                             <tr>
@@ -145,20 +148,12 @@ return(
                                     Rating
                                 </td>
                                 <td>
-                                <input id="rating" name="rating" type="text" value = {inputRating} onChange={handleChange}/>
+                                <input id="rating" name="rating" type="number" value = {inputRating} onChange={handleChange}/>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    Description
-                                </td>
-                                <td>
-                                <input id="description" name="description" type="text" value = {inputDescription} onChange={handleChange}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colSpan="2">
-                                    <button>
+                                <td colSpan="5">
+                                    <button className='button-green float-right'>
                                         Submit
                                     </button>
                                 </td>

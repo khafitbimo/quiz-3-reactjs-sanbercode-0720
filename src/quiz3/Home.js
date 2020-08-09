@@ -1,4 +1,4 @@
-import React, {useState, Component } from 'react'
+import React, { Component } from 'react'
 import axios from 'axios'
 
 class Home extends Component{
@@ -17,7 +17,6 @@ class Home extends Component{
         axios.get(`http://backendexample.sanbercloud.com/api/movies`)
             .then(res => {
                 res.data.map(el=>{
-                    
                     this.setState({
                         movies : [...this.state.movies,{
                             title : el.title,
@@ -35,17 +34,18 @@ class Home extends Component{
     render(){
         return(
             <>
+                <h2 className='title'>Daftar Film Terbaik</h2>
                 <table>
                     <tbody>  
-                    {this.state.movies.sort((a,b) => parseFloat(b.rating) - parseFloat(a.rating)).map((el,index)=>{
+                    {this.state.movies.sort((a,b) => parseInt(b.rating) - parseInt(a.rating)).map((el,index)=>{
                         return (
-                            <tr key={index}>
+                            <tr key={index} className='border-bottom'>
                                 <td>
-                                    <div className='title-movie'>{el.title}</div>
+                                    <div className='title-movie'><h4>{el.title}</h4></div>
                                     <div className='detail-movie'>
                                         <p>{`Rating ${el.rating}`}</p>
                                         <p>{`Durasi : ${el.duration / 60} jam`}</p>
-                                        <p>{`Gender : ${el.rating}`}</p>
+                                        <p>{`Genre : ${el.genre}`}</p>
                                     </div>
                                     <div className='deskripsi-movie'>
                                         <strong>Deskripsi : </strong>{el.description}
