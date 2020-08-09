@@ -27,7 +27,7 @@ const LoginContent = () => {
                     <div className='input'>
                         <input className='thirty' id="user" name="user" type="text" value ={user} onChange={handleChange}/>
                     </div>
-                    <button className='button-login'>Login</button> 
+                    <button className='button-login button-green'>Login</button> 
                 </form>
             </div>
         </>
