@@ -1,4 +1,4 @@
-import React, {useContext} from "react"
+import React, {useContext, useState} from "react"
 import {Switch, Route, Link} from 'react-router-dom';
 
 import {QuizContext} from "./QuizContext"
@@ -8,7 +8,7 @@ import Movie from './movie/Movie'
 import Login from './LoginContent'
 
 const IndexContent = () =>{
-    const [isLogin, setIsLogin,user] = useContext(QuizContext);
+    const [isLogin, setIsLogin,inputUsername] = useContext(QuizContext);
 
     return(
         <>
@@ -16,7 +16,7 @@ const IndexContent = () =>{
                 <div className='logo-user'>
                     <img id="logo" width="200px" className="logo"/>
                     {isLogin && 
-                        <div className='label-user'>Welcome ! {user}</div>
+                        <div className='label-user'>Welcome ! {inputUsername}</div>
                     }
                 </div>
                 

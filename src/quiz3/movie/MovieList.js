@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{useContext,useState} from 'react';
 import axios from "axios"
 import {MovieContext} from './MovieContext';
 
