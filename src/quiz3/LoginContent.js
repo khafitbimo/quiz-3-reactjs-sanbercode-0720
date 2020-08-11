@@ -1,5 +1,6 @@
 import React, {useContext, useState, useEffect} from "react"
 import { useHistory } from 'react-router-dom';
+import {Button, Container} from '@material-ui/core';
 import {QuizContext} from './QuizContext';
 
 const LoginContent = () => {
@@ -27,6 +28,7 @@ const LoginContent = () => {
                     <div className='input'>
                         <input className='thirty' id="user" name="user" type="text" value ={inputUsername} onChange={handleChange}/>
                     </div>
+                    {/* <Button type='submit' variant='contained' color='primary'>Login</Button> */}
                     <button className='button-login button-green'>Login</button> 
                 </form>
             </div>

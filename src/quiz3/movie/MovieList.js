@@ -4,14 +4,14 @@ import {MovieContext} from './MovieContext';
 
 const MovieList = () => {
     const [apiUrl,movie,setMovie, 
-         setInputTitle,
-         setInputDescription,
-        setInputYear,
-        setInputDuration,
-        setInputGenre,
-        setInputRating,
-         setSelectedId,
-         setStatusForm] = useContext(MovieContext);
+        inputTitle, setInputTitle,
+        inputDescription, setInputDescription,
+        inputYear,setInputYear,
+        inputDuration,setInputDuration,
+        inputGenre,setInputGenre,
+        inputRating,setInputRating,
+        selectedId, setSelectedId,
+        statusForm, setStatusForm] = useContext(MovieContext);
 
     
         const handleEdit = (event) => {
